@@ -9,6 +9,7 @@ if (params.has('errors')) {
   // get the quantities also to insert into the form to make sticky
   quantities = JSON.parse(params.get('quantities'));
   // Put up an alert box if there are errors
+  // <modify code here to put up an alert if your have an error in errors indicating no quantities were selected>
   alert('Please fix the errors in the form and resubmit');
 }
 
@@ -48,10 +49,12 @@ function myFunction() {
 
 
 function display_products() {
-  for (i = 0; i < products.length; i++) {
+  // loop through the products array and display each product as a section element
+  for (let i = 0; i < products.length; i++) {
     let quantity_label = 'Quantity';
+    // if there is an error with this quantity, put it in the label to display it
     if( (typeof errors['quantity'+i]) != 'undefined' ) {
-      quantity_label = `<font class="error_message">${errors['quantity'+i].join('<br>')}</font>`;
+      quantity_label = `<font class="error_message">${errors['quantity'+i]}</font>`;
     }
     let quantity = 0;
     // put previous quantity in textbox if it exists
