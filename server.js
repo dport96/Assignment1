@@ -54,6 +54,8 @@ app.post('/process_purchase_form', function (req, res, next) {
     params.append('errors', JSON.stringify(errors));
     res.redirect( 'store.html?' + params.toString());
   } else {
+    // Reduce the quantities of each product purchased from the quantities available
+    // <add code here>
     res.redirect('./invoice.html?' + params.toString());
   }
 
