@@ -67,12 +67,12 @@ app.listen(8080, () => console.log(`listening on port 8080`));
 
 
 function isNonNegInt(q, returnErrors = false) {
-  errors = []; // assume no errors at first
+  let errs = []; // assume no errors at first
   if(q == '') q = 0; // handle blank inputs as if they are 0
-  if (Number(q) != q) errors.push('Not a number!'); // Check if string is a number value
+  if (Number(q) != q) errs.push('Not a number!'); // Check if string is a number value
   else {
-    if (q < 0) errors.push('Negative value!'); // Check if it is non-negative
-    if (parseInt(q) != q) errors.push('Not an integer!'); // Check that it is an integer
+    if (q < 0) errs.push('Negative value!'); // Check if it is non-negative
+    if (parseInt(q) != q) errs.push('Not an integer!'); // Check that it is an integer
   }
-  return returnErrors ? errors : (errors.length == 0);
+  return returnErrors ? errs : (errs.length == 0);
 }
