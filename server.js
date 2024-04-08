@@ -61,7 +61,8 @@ app.post('/process_purchase_form', function (req, res, next) {
 
 });
 
-app.use(express.static('./public'));
+// This adds middleware to serve files from the public directory
+app.use(express.static(__dirname  + '/public'));
 app.listen(8080, () => console.log(`listening on port 8080`));
 
 
